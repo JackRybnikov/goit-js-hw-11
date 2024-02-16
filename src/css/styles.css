@@ -27,8 +27,8 @@
 /* Loader */
 
 .loader {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   position: relative;
   animation: rotate 1s linear infinite
@@ -72,29 +72,31 @@
   flex-wrap: wrap;
   justify-content: center;
   row-gap: 24px;
-  column-gap: 24px;
+  column-gap: 16px;
   padding: 24px 156px;
   margin: 0;
-  max-height: 240px;
 }
 
 .gallery-item {
   border: 1px solid black;
+  max-height: 248px;
   max-width: 360px;
-  width: calc((100% - 48px) / 3);
+  width: calc((100% - 48px) / 4);
 }
 
 .gallery-image {
-  height: auto;
+  height: 200px;
   max-width: 100%;
+  display: block;
+  object-fit: fill;
 }
 
 .properties{
   display: flex;
   flex-wrap: wrap;
-  column-gap: 24px;
+  column-gap: 12px;
   justify-content: center;
-  padding: 4px 25px;
+  padding: 4px 24px;
 }
 
 .properties > li{
@@ -106,7 +108,7 @@
 .properties > li > h5{
   padding: 0;
   margin: 0;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   line-height: 16px;
   letter-spacing: 0.04em;
@@ -116,7 +118,7 @@
 .properties > li > p{
   padding: 0;
   margin: 0;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em;
