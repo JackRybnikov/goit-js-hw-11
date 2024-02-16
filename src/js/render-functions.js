@@ -51,5 +51,7 @@ export const galleryCreation = (images) => {
         galleryList.insertAdjacentHTML("beforeend", markup);
 
         const gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, captionsData: "alt",});
+
+        gallery.refresh();
     }
 };

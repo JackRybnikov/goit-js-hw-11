@@ -8,11 +8,24 @@ const searchForm = document.querySelector(".search-form");
 // getting search value
 const localStorageKey = "search-text";
 
-searchBtn.setAttribute('disabled', true);
+searchText.value = JSON.parse(localStorage.getItem(localStorageKey));
 
-searchText.addEventListener("input", e =>{
-    e.stopPropagation();
+if(searchText.value === ''){
+    searchBtn.setAttribute('disabled', true);
+}
 
+const handleClick = () => {
+    galleryList.innerHTML = `<div class="loader"></div>`;
+
+    const search = localStorage.getItem(localStorageKey);
+    localStorage.removeItem(localStorageKey);
+    searchForm.reset();
+    searchBtn.setAttribute('disabled', true);
+
+    sendRequest(search);
+};
+
+const check = (e) =>{
     let text = e.target.value;
 
     localStorage.setItem(localStorageKey,JSON.stringify(text));
@@ -22,19 +35,31 @@ searchText.addEventListener("input", e =>{
     } else {
         searchBtn.setAttribute('disabled', true);
     }
+}
+
+window.addEventListener('keydown', (e) => {
+    if (e.key=='Enter') {
+        if (e.target.nodeName=='INPUT' && e.target.type=='text') {
+            e.preventDefault();
+            if (searchText.value !== ""){
+                handleClick();
+            }
+        }
+    }
+}, true);
+  
+searchText.addEventListener("input", e =>{
+    e.stopPropagation();
+    e.preventDefault();
+    
+    check(e);
 });
 
 searchBtn.addEventListener("click", e =>{
     e.stopPropagation();
+    e.preventDefault();
 
-    galleryList.innerHTML = `<div class="loader"></div>`;
-
-    const search = localStorage.getItem(localStorageKey);
-    localStorage.removeItem(localStorageKey);
-    searchForm.reset();
-    searchBtn.setAttribute('disabled', true);
-
-    sendRequest(search);
+    handleClick();
 });
 
 
