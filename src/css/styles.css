@@ -24,6 +24,26 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.search-btn{
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(78, 117, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.search-btn:hover,
+.search-btn:focus {
+  background-color: rgba(108, 140, 255, 1);
+}
+
+.search-btn:disabled {
+  background-color: #CFCFCF;
+  color: #989898;
+}
+
 /* Loader */
 
 .loader {
